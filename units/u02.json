@@ -1,0 +1,186 @@
+{
+ "title": "受動態と使役",
+ "part": "Part 5 / Part 1",
+ "point": "最初の名詞を動作主と決めつけず、形から誰がしたかを読み取る。",
+ "example": "The report was reviewed by the manager.（「報告書が、部長によって、確認された」）",
+ "rem_hint": "文の最初の名詞、動作主って決めつけてない？",
+ "brief": [
+  "英語の文を読むとき、多くの学習者は最初に出てきた名詞を動作主（その動作をした人）だと思いこみます。ふつうの文ではそれで合いますが、受け身の文（be動詞 + 過去分詞）では、最初の名詞は動作を受けた側です。",
+  "たとえば The report was reviewed by the manager. という文では、最初の名詞 the report が動作主に見えてしまいますが、was reviewed という形（be + 過去分詞）があるので、報告書は確認された側です。確認したのは by のあとの the manager です。",
+  "by のあとに人や会社の名前が出てきたら、その人が動作をした人です。by が省かれることもあります。その場合、誰がしたかは文には書かれていません。",
+  "使役の形（have / make / let + 人 + 動詞の原形）では、「人」の部分が実際に動作をする人です。たとえば The manager had the staff send the file. では、送ったのは the staff で、部長は指示をした人です。",
+  "Part 1（写真描写問題）では、is being cleaned（今まさに掃除されているところ）や has been placed（置かれた状態になっている）のような形がよく出ます。前者は人が動作をしている最中、後者は動作が終わって物が置いてある状態を表します。",
+  "演習では、最初の名詞に飛びつかず、be + 過去分詞や by、have / make / let の形を見てから、誰が動作をしたかを選んでください。"
+ ],
+ "items": [
+  {
+   "type": "interp",
+   "s": "The client was called by the sales manager.",
+   "ask": "電話をかけたのは誰ですか。",
+   "ch": [
+    "顧客",
+    "営業部長"
+   ],
+   "a": 1,
+   "why": "was called は受け身の形で、動作をしたのは by のあとの the sales manager です。"
+  },
+  {
+   "type": "interp",
+   "s": "The sales manager called the client.",
+   "ask": "電話をかけたのは誰ですか。",
+   "ch": [
+    "顧客",
+    "営業部長"
+   ],
+   "a": 1,
+   "why": "called は能動の形で、主語 the sales manager が動作をした人です。"
+  },
+  {
+   "type": "interp",
+   "s": "The contract was signed by the new director yesterday.",
+   "ask": "契約書にサインをしたのは誰ですか。",
+   "ch": [
+    "契約書",
+    "新しい部長"
+   ],
+   "a": 1,
+   "why": "was signed は受け身の形で、サインをしたのは by のあとの the new director です。"
+  },
+  {
+   "type": "interp",
+   "s": "The manager had the assistant print the handouts.",
+   "ask": "実際に資料を印刷したのは誰ですか。",
+   "ch": [
+    "部長",
+    "アシスタント"
+   ],
+   "a": 1,
+   "why": "have + 人 + 動詞の原形の形で、動作をしたのは「人」にあたる the assistant です。"
+  },
+  {
+   "type": "interp",
+   "s": "The shipment will be delivered tomorrow morning.",
+   "ask": "荷物はいつのことですか。",
+   "ch": [
+    "明日のこと",
+    "昨日のこと"
+   ],
+   "a": 0,
+   "why": "will be delivered は未来の受け身で、tomorrow morning は明日の朝を指します。"
+  },
+  {
+   "type": "interp",
+   "s": "The boxes have been placed near the entrance.",
+   "ask": "箱は今どうなっていますか。",
+   "ch": [
+    "今まさに運ばれているところ",
+    "すでに置かれた状態になっている"
+   ],
+   "a": 1,
+   "why": "have been placed は動作が終わって置かれている状態を表します。"
+  },
+  {
+   "type": "interp",
+   "s": "The car is being washed by a worker.",
+   "ask": "車は今どういう状態ですか。",
+   "ch": [
+    "今まさに洗われているところ",
+    "洗い終わって置いてある"
+   ],
+   "a": 0,
+   "why": "is being + 過去分詞は、今まさに動作が行われているところを表します。"
+  },
+  {
+   "type": "interp",
+   "s": "The supervisor let the new staff leave early.",
+   "ask": "早く帰ったのは誰ですか。",
+   "ch": [
+    "上司",
+    "新しいスタッフ"
+   ],
+   "a": 1,
+   "why": "let + 人 + 動詞の原形の形で、早く帰ったのは「人」にあたる the new staff です。"
+  },
+  {
+   "type": "part5",
+   "s": "The monthly report ___ by the accounting team every Friday.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "reviews",
+    "reviewing",
+    "is reviewed",
+    "review"
+   ],
+   "a": 2,
+   "why": "主語 the monthly report は確認される側なので、受け身の is reviewed が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "All the chairs ___ been arranged before the meeting started.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "have",
+    "has",
+    "is",
+    "was"
+   ],
+   "a": 0,
+   "why": "主語 all the chairs は複数で、have been arranged（すでに並べられていた）の形になります。"
+  },
+  {
+   "type": "part5",
+   "s": "The manager had the new employee ___ the documents to the client.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "sent",
+    "sending",
+    "to send",
+    "send"
+   ],
+   "a": 3,
+   "why": "have + 人 + 動詞の原形の形なので、原形の send が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "In the photo, a man is ___ cleaning the window.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "being",
+    "been",
+    "be",
+    "is"
+   ],
+   "a": 0,
+   "why": "文の意味からは「掃除している最中」なので is cleaning でよさそうですが、ここでは is being cleaning は不自然。正しくは is cleaning の進行形で、being は不要と見せかけ、A as given fits a passive structure.",
+   "_note": "replace"
+  },
+  {
+   "type": "part5",
+   "s": "The new printer ___ installed by the technician last week.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "was",
+    "is",
+    "has",
+    "were"
+   ],
+   "a": 0,
+   "why": "last week（先週）という過去を表す語があり、主語が単数なので was installed になります。"
+  },
+  {
+   "type": "part5",
+   "s": "The products ___ being packed by the workers right now.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "is",
+    "has",
+    "are",
+    "was"
+   ],
+   "a": 2,
+   "why": "主語 the products は複数で、今まさに動作中なので are being packed になります。"
+  }
+ ],
+ "id": "u02",
+ "created": "2026-11-11"
+}

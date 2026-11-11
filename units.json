@@ -7,6 +7,14 @@
    "point": "過去分詞は「される側」、ing 形は「している側」を表します。",
    "example": "The report written by Mr. Tanaka was helpful.（田中さんによって書かれた報告書）",
    "rem_hint": "written と writing、ちゃんと見分けられる？"
+  },
+  {
+   "id": "u02",
+   "title": "受動態と使役",
+   "part": "Part 5 / Part 1",
+   "point": "最初の名詞を動作主と決めつけず、形から誰がしたかを読み取る。",
+   "example": "The report was reviewed by the manager.（「報告書が、部長によって、確認された」）",
+   "rem_hint": "文の最初の名詞、動作主って決めつけてない？"
   }
  ]
 }
