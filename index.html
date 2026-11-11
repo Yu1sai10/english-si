@@ -35,6 +35,30 @@ button.main{border-color:var(--accent)}
 "use strict";
 const KEY = "english-units-v1";
 const STEPS = [7, 21, 60];
+const ENDPOINT = "https://5rctj7z24s5tat6l4vc6gmyc240hptqm.lambda-url.ap-northeast-1.on.aws/";
+const KKEY = "english-units-key", OUTBOX = "english-units-outbox";
+(() => { const q = new URLSearchParams(location.search), k = q.get("k");
+  if (k) { localStorage.setItem(KKEY, k); q.delete("k");
+    history.replaceState(null, "", location.pathname + (q.toString() ? "?" + q : "")); } })();
+function enqueue(payload) {
+  const box = JSON.parse(localStorage.getItem(OUTBOX) || "[]");
+  box.push(payload); localStorage.setItem(OUTBOX, JSON.stringify(box.slice(-200))); flush();
+}
+let flushing = false;
+async function flush() {
+  const k = localStorage.getItem(KKEY); if (!k || flushing) return; flushing = true;
+  try {
+    let box = JSON.parse(localStorage.getItem(OUTBOX) || "[]");
+    while (box.length) {
+      const r = await fetch(ENDPOINT, {method: "POST", headers: {"content-type": "application/json"},
+        body: JSON.stringify({...box[0], k})});
+      if (!r.ok) break;
+      box.shift(); localStorage.setItem(OUTBOX, JSON.stringify(box));
+    }
+  } catch (e) {} finally { flushing = false; }
+}
+window.addEventListener("online", flush);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) flush(); });
 const $app = document.getElementById("app");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
@@ -92,7 +116,7 @@ async function home() {
   $app.innerHTML = h;
   $app.querySelectorAll("[data-u]").forEach(b => b.onclick = () => brief(b.dataset.u));
   const rv = document.getElementById("rv");
-  if (rv) rv.onclick = () => practice(due, "復習");
+  if (rv) rv.onclick = () => practice(due, "復習", "review");
 }
 
 async function brief(id) {
@@ -109,17 +133,21 @@ async function brief(id) {
   };
 }
 
-function practice(list, label) {
-  const wrong = []; let n = 0, ok = 0;
+function practice(list, label, kind = "unit") {
+  const wrong = [], log = [], t0 = Date.now(); let n = 0, ok = 0;
   const step = () => {
-    if (n >= list.length) return result(label, ok, list.length, wrong);
+    if (n >= list.length) {
+      enqueue({kind, label, date: today(), month: kind === "check" ? new URLSearchParams(location.search).get("check") : undefined, sec: Math.round((Date.now() - t0) / 1000), ok, total: list.length, items: log});
+      return result(label, ok, list.length, wrong, kind === "check" ? log : null);
+    }
     const {it} = list[n];
     $app.innerHTML = `<p class="meta">${esc(label)}　${n + 1} / ${list.length}</p>
       <div class="stem">${esc(it.s)}</div><p class="ask">${esc(it.ask)}</p>
       ${it.ch.map((c, k) => `<button data-k="${k}">${esc(c)}</button>`).join("")}`;
     $app.querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
-      const k = +b.dataset.k, correct = k === it.a, st = load();
-      record(st, `${list[n].uid}-${list[n].i}`, correct); save(st);
+      const k = +b.dataset.k, correct = k === it.a;
+      if (kind !== "check") { const st = load(); record(st, `${list[n].uid}-${list[n].i}`, correct); save(st); }
+      log.push({uid: list[n].uid, i: list[n].i, type: it.type, anchor: !!it.anchor, ok: correct, chose: it.ch[k], answer: it.ch[it.a], s: it.s});
       if (correct) ok++; else wrong.push({it, k});
       $app.innerHTML = `<div class="mark ${correct ? "ok" : "ng"}">${correct ? "○" : "×"}</div>`;
       n++; setTimeout(step, 550);
@@ -128,8 +156,14 @@ function practice(list, label) {
   step();
 }
 
-function result(label, ok, total, wrong) {
+function result(label, ok, total, wrong, log) {
   let h = `<h1>${esc(label)}</h1><div class="card">${ok} / ${total} 正解</div>`;
+  if (log) {
+    const g = {};
+    log.forEach(x => { const key = x.anchor ? "定点問題" : (MAN.units.find(u => u.id === x.uid) || {title: x.uid}).title;
+      g[key] = g[key] || [0, 0]; g[key][1]++; if (x.ok) g[key][0]++; });
+    h += `<div class="card">${Object.entries(g).map(([k, v]) => `<p>${esc(k)}: ${v[0]} / ${v[1]}</p>`).join("")}<p class="sub">結果はレムに自動で届きます。</p></div>`;
+  }
   if (wrong.length) h += `<p class="sub">間違えた問題の見直し</p>` + wrong.map(({it, k}) =>
     `<div class="rev"><div class="stem">${esc(it.s)}</div><p class="ask">${esc(it.ask)}</p>
      <p class="ng">選んだ答え: ${esc(it.ch[k])}</p><p class="ok">正解: ${esc(it.ch[it.a])}</p><p>${esc(it.why)}</p></div>`).join("");
@@ -138,7 +172,17 @@ function result(label, ok, total, wrong) {
   document.getElementById("home").onclick = home;
 }
 
-fetch("units.json", {cache: "no-cache"}).then(r => r.json()).then(m => { MAN = m; home(); })
+async function check(month) {
+  const c = await (await fetch(`checks/${month}.json`, {cache: "no-cache"})).json();
+  $app.innerHTML = `<h1>${esc(c.title)}</h1><div class="card"><p>${esc(c.intro)}</p><p class="sub">${c.items.length}問。演習中は正誤だけ出ます。</p></div>
+    <button class="main" id="go">始める</button><button id="back">ホームへ</button>`;
+  document.getElementById("back").onclick = () => { history.replaceState(null, "", location.pathname); home(); };
+  document.getElementById("go").onclick = () => practice(c.items.map((it, i) => ({uid: it.uid || "anchor", i, it})), c.title, "check");
+}
+flush();
+fetch("units.json", {cache: "no-cache"}).then(r => r.json()).then(m => { MAN = m;
+  const cm = new URLSearchParams(location.search).get("check");
+  if (cm && /^\d{4}-\d{2}$/.test(cm)) check(cm).catch(home); else home(); })
   .catch(() => { $app.innerHTML = `<p class="sub">単元の一覧を読めませんでした。</p>`; });
 </script>
 </body>
