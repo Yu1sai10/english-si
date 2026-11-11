@@ -1,0 +1,161 @@
+{
+ "month": "2026-11",
+ "title": "11月の理解度チェック",
+ "intro": "毎月同じ定点問題10問で伸びを測ります。今月は定点問題だけです。",
+ "items": [
+  {
+   "type": "interp",
+   "topic": 1,
+   "s": "Ms. Tanaka had the report reviewed by the legal team before the meeting.",
+   "ask": "この文の内容として正しいのはどちらですか。",
+   "ch": [
+    "田中さんが法務チームの報告書を確認した",
+    "田中さんは法務チームに報告書を確認してもらった"
+   ],
+   "a": 1,
+   "why": "have + 名詞 + 過去分詞は「〜してもらう」という意味です。報告書は reviewed される側で、確認したのは法務チームです。",
+   "anchor": true,
+   "uid": "anchor"
+  },
+  {
+   "type": "part5",
+   "topic": 2,
+   "s": "The new printer ___ installed in the conference room yesterday.",
+   "ask": "空所に入る語を選んでください。",
+   "ch": [
+    "was",
+    "has",
+    "did",
+    "is"
+   ],
+   "a": 0,
+   "why": "プリンターは設置される側なので受動態です。yesterday があるので過去形の was を選びます。",
+   "anchor": true,
+   "uid": "anchor"
+  },
+  {
+   "type": "interp",
+   "topic": 3,
+   "s": "By the time the manager arrived, the staff had finished the preparations.",
+   "ask": "準備が終わったのはいつですか。",
+   "ch": [
+    "部長が到着する前",
+    "部長が到着した後"
+   ],
+   "a": 0,
+   "why": "had finished は過去完了で、過去のある時点より前に完了したことを表します。部長の到着より前に準備が終わっていました。",
+   "anchor": true,
+   "uid": "anchor"
+  },
+  {
+   "type": "part5",
+   "topic": 4,
+   "s": "The client ___ we met last week sent us a thank-you email.",
+   "ask": "空所に入る語を選んでください。",
+   "ch": [
+    "who",
+    "whose",
+    "whom",
+    "which"
+   ],
+   "a": 2,
+   "why": "先行詞は人の client で、関係節の中で met の目的語になっています。目的格の whom が正解です。who も使われますが選択肢では whom が適切です。",
+   "anchor": true,
+   "uid": "anchor"
+  },
+  {
+   "type": "part5",
+   "topic": 5,
+   "s": "The sales team made a ___ decision to expand into Asia.",
+   "ask": "空所に入る語を選んでください。",
+   "ch": [
+    "strategy",
+    "strategic",
+    "strategically",
+    "strategize"
+   ],
+   "a": 1,
+   "why": "空所の後ろは名詞 decision です。名詞を修飾するのは形容詞なので strategic を選びます。",
+   "anchor": true,
+   "uid": "anchor"
+  },
+  {
+   "type": "part5",
+   "topic": 6,
+   "s": "The event was postponed ___ the heavy rain.",
+   "ask": "空所に入る語を選んでください。",
+   "ch": [
+    "because",
+    "although",
+    "because of",
+    "so"
+   ],
+   "a": 2,
+   "why": "空所の後ろは the heavy rain という名詞のかたまりです。名詞の前には前置詞句の because of を使います。",
+   "anchor": true,
+   "uid": "anchor"
+  },
+  {
+   "type": "part5",
+   "topic": 7,
+   "s": "Our sales dropped last quarter. ___, we are launching a new campaign next month.",
+   "ask": "空所に入る語を選んでください。",
+   "ch": [
+    "However",
+    "Therefore",
+    "Moreover",
+    "Otherwise"
+   ],
+   "a": 1,
+   "why": "売上が落ちたことが原因で、新しいキャンペーンを始めるという結果の関係です。結果を表す Therefore が適切です。",
+   "anchor": true,
+   "uid": "anchor"
+  },
+  {
+   "type": "interp",
+   "topic": 8,
+   "s": "Some chairs have been placed around the table.",
+   "ask": "この文が表しているのはどちらですか。",
+   "ch": [
+    "今まさに誰かが椅子を置いている",
+    "椅子はすでに置かれた状態である"
+   ],
+   "a": 1,
+   "why": "has been + 過去分詞は、すでに動作が完了してその状態があることを表します。置き終わった状態を示しています。",
+   "anchor": true,
+   "uid": "anchor"
+  },
+  {
+   "type": "part5",
+   "topic": 9,
+   "s": "When will the new catalog be ready? ― ___",
+   "ask": "応答として最も適切なものを選んでください。",
+   "ch": [
+    "In the marketing office.",
+    "By next Friday.",
+    "Mr. Lee will.",
+    "Yes, it is ready."
+   ],
+   "a": 1,
+   "why": "When は時を尋ねる疑問詞なので、時を答える By next Friday が正解です。場所や人を答える選択肢はわなです。",
+   "anchor": true,
+   "uid": "anchor"
+  },
+  {
+   "type": "part5",
+   "topic": 10,
+   "s": "According to the email, members get a 10% discount. The price list shows the jacket is 80 dollars. ___ will a member pay for the jacket?",
+   "ask": "空所に入る語を選んでください。",
+   "ch": [
+    "How much",
+    "How many",
+    "How long",
+    "How often"
+   ],
+   "a": 0,
+   "why": "金額を尋ねるので How much が正解です。メールの割引率と価格表の値段を組み合わせて計算する問題です。",
+   "anchor": true,
+   "uid": "anchor"
+  }
+ ]
+}
