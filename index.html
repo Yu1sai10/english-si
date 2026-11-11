@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="英語の単元">
+<title>英語の単元</title>
+<style>
+:root{--bg:#12131a;--panel:#1c1e28;--line:#2c2f3d;--fg:#e8e9ef;--dim:#9aa0b4;--ok:#4ea87a;--ng:#c95b5b;--accent:#6f8fd4}
+@media (prefers-color-scheme: light){:root{--bg:#f6f7fa;--panel:#fff;--line:#dfe2ea;--fg:#1a1c24;--dim:#5f6678;--ok:#2f7d55;--ng:#a63f3f;--accent:#3f5f9e}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.7;-webkit-text-size-adjust:100%}
+main{max-width:40rem;margin:0 auto;padding:max(1.2rem,env(safe-area-inset-top)) 1rem 4rem}
+h1{font-size:1.15rem;margin:0 0 .3rem}
+p{margin:.5rem 0}
+.sub{color:var(--dim);font-size:.85rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1rem;margin:.7rem 0}
+button{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.75rem .9rem;text-align:left;width:100%;margin:.35rem 0}
+button.main{border-color:var(--accent)}
+.stem{font-size:1.2rem;line-height:1.55;font-family:ui-serif,Georgia,serif;margin:.3rem 0 .8rem}
+.ask{color:var(--dim);font-size:.9rem}
+.mark{font-size:2.6rem;text-align:center;margin:1.2rem 0}
+.ok{color:var(--ok)}.ng{color:var(--ng)}
+.meta{color:var(--dim);font-size:.8rem}
+.rev{border-left:3px solid var(--ng);padding:.1rem 0 .1rem .8rem;margin:1rem 0}
+.rev .stem{font-size:1rem;margin:.1rem 0 .3rem}
+.rev p{font-size:.9rem;margin:.2rem 0}
+.done{color:var(--ok);font-size:.8rem}
+</style>
+</head>
+<body>
+<main id="app"><p class="sub">読み込み中</p></main>
+<script>
+"use strict";
+const KEY = "english-units-v1";
+const STEPS = [7, 21, 60];
+const $app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const today = () => ymd(new Date());
+const addDays = n => { const d = new Date(); d.setDate(d.getDate() + n); return ymd(d); };
+const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {items:{}, started:{}}; } catch(e) { return {items:{}, started:{}}; } };
+const save = s => localStorage.setItem(KEY, JSON.stringify(s));
+
+let MAN = {units: []};
+const CACHE = {};
+async function unit(id) {
+  if (!CACHE[id]) CACHE[id] = await (await fetch(`units/${id}.json`, {cache: "no-cache"})).json();
+  return CACHE[id];
+}
+
+/* 記録の規則: 3連続正答で到達。到達後は 7日、21日、60日で出し直す。誤答で到達を解除し最短に戻す */
+function record(st, iid, correct) {
+  const r = st.items[iid] || {streak: 0, reached: false, step: 0, due: null};
+  if (correct) {
+    r.streak += 1;
+    if (r.reached) { r.step += 1; r.due = r.step < STEPS.length ? addDays(STEPS[r.step]) : null; }
+    else if (r.streak >= 3) { r.reached = true; r.step = 0; r.due = addDays(STEPS[0]); }
+  } else {
+    r.streak = 0; r.reached = false; r.step = 0; r.due = null;
+  }
+  st.items[iid] = r;
+}
+
+async function dueList() {
+  const st = load(), t = today(), out = [];
+  for (const m of MAN.units) {
+    if (!st.started[m.id]) continue;
+    const u = await unit(m.id);
+    u.items.forEach((it, i) => {
+      const r = st.items[`${m.id}-${i}`];
+      if (!r) return;
+      const dueReached = r.reached && r.due && r.due <= t;
+      const notYet = !r.reached && st.started[m.id] < t;
+      if (dueReached || notYet) out.push({uid: m.id, i, it});
+    });
+  }
+  return out.slice(0, 20);
+}
+
+async function home() {
+  const st = load(), due = await dueList();
+  let h = `<h1>英語の単元</h1><p class="sub">解説を読んでから演習。演習中は正誤だけ出ます。理由は最後にまとめて見ます。</p>`;
+  if (due.length) h += `<button class="main" id="rv">復習 ${due.length}問</button>`;
+  [...MAN.units].reverse().forEach(m => {
+    const tag = st.started[m.id] ? `<span class="done">着手 ${esc(st.started[m.id])}</span>` : "";
+    h += `<div class="card"><b>${esc(m.title)}</b> <span class="meta">${esc(m.part)}</span> ${tag}
+      <p class="sub">${esc(m.point)}</p><button data-u="${m.id}">解説を読む</button></div>`;
+  });
+  if (!MAN.units.length) h += `<p class="sub">単元はまだありません。</p>`;
+  $app.innerHTML = h;
+  $app.querySelectorAll("[data-u]").forEach(b => b.onclick = () => brief(b.dataset.u));
+  const rv = document.getElementById("rv");
+  if (rv) rv.onclick = () => practice(due, "復習");
+}
+
+async function brief(id) {
+  const u = await unit(id);
+  $app.innerHTML = `<h1>${esc(u.title)}</h1><p class="meta">${esc(u.part)}</p>
+    <div class="card">${u.brief.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+    <button class="main" id="go">演習を始める（${u.items.length}問）</button><button id="back">戻る</button>`;
+  window.scrollTo(0, 0);
+  document.getElementById("back").onclick = home;
+  document.getElementById("go").onclick = () => {
+    const st = load();
+    if (!st.started[id]) { st.started[id] = today(); save(st); }
+    practice(u.items.map((it, i) => ({uid: id, i, it})), u.title);
+  };
+}
+
+function practice(list, label) {
+  const wrong = []; let n = 0, ok = 0;
+  const step = () => {
+    if (n >= list.length) return result(label, ok, list.length, wrong);
+    const {it} = list[n];
+    $app.innerHTML = `<p class="meta">${esc(label)}　${n + 1} / ${list.length}</p>
+      <div class="stem">${esc(it.s)}</div><p class="ask">${esc(it.ask)}</p>
+      ${it.ch.map((c, k) => `<button data-k="${k}">${esc(c)}</button>`).join("")}`;
+    $app.querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
+      const k = +b.dataset.k, correct = k === it.a, st = load();
+      record(st, `${list[n].uid}-${list[n].i}`, correct); save(st);
+      if (correct) ok++; else wrong.push({it, k});
+      $app.innerHTML = `<div class="mark ${correct ? "ok" : "ng"}">${correct ? "○" : "×"}</div>`;
+      n++; setTimeout(step, 550);
+    });
+  };
+  step();
+}
+
+function result(label, ok, total, wrong) {
+  let h = `<h1>${esc(label)}</h1><div class="card">${ok} / ${total} 正解</div>`;
+  if (wrong.length) h += `<p class="sub">間違えた問題の見直し</p>` + wrong.map(({it, k}) =>
+    `<div class="rev"><div class="stem">${esc(it.s)}</div><p class="ask">${esc(it.ask)}</p>
+     <p class="ng">選んだ答え: ${esc(it.ch[k])}</p><p class="ok">正解: ${esc(it.ch[it.a])}</p><p>${esc(it.why)}</p></div>`).join("");
+  h += `<button class="main" id="home">ホームへ</button>`;
+  $app.innerHTML = h; window.scrollTo(0, 0);
+  document.getElementById("home").onclick = home;
+}
+
+fetch("units.json", {cache: "no-cache"}).then(r => r.json()).then(m => { MAN = m; home(); })
+  .catch(() => { $app.innerHTML = `<p class="sub">単元の一覧を読めませんでした。</p>`; });
+</script>
+</body>
+</html>

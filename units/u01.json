@@ -1,0 +1,185 @@
+{
+ "title": "動詞の形（過去分詞と ing 形）",
+ "part": "Part 5",
+ "point": "過去分詞は「される側」、ing 形は「している側」を表します。",
+ "example": "The report written by Mr. Tanaka was helpful.（田中さんによって書かれた報告書）",
+ "rem_hint": "written と writing、ちゃんと見分けられる？",
+ "brief": [
+  "英語の動詞には、もとの形のほかに ing 形（例: writing）と過去分詞（例: written）という二つの変化した形があります。日本語話者は英文を語彙の意味だけで読んでしまうことが多く、この二つの形の違いを見落としがちです。",
+  "ing 形は「〜している」という、動作を自分でしている側を表します。たとえば the man writing a report は「報告書を書いている男性」です。男性が自分で書いています。",
+  "過去分詞は「〜される／された」という、動作をされる側を表します。たとえば the report written by the man は「その男性によって書かれた報告書」です。報告書は書かれる側です。",
+  "名詞のうしろに動詞の変化形が置かれて、その名詞を説明することがよくあります。この形を見たら、名詞が「している側」なのか「される側」なのかを考えてください。人が ing 形、物が過去分詞になることが多いですが、物が ing 形になることもあるので形を見て判断します。",
+  "have（持つ）のあとに「名詞＋過去分詞」が続くと、「その名詞を〜してもらう」という意味になります。たとえば I had the document checked は「私はその書類を確認してもらった」です。書類は確認される側なので過去分詞です。",
+  "大切なのは、意味だけで判断せずに語の形を見ることです。written と writing は見た目が似ていますが、役割がまったく違います。問題を解くときは、説明されている名詞が「する側」か「される側」かを必ず確認してください。"
+ ],
+ "items": [
+  {
+   "type": "interp",
+   "s": "The manager interviewing the candidate asked many questions.",
+   "ask": "質問をしたのはどちらですか。",
+   "ch": [
+    "部長",
+    "候補者"
+   ],
+   "a": 0,
+   "why": "interviewing は ing 形なので、manager が「面接している側」です。"
+  },
+  {
+   "type": "interp",
+   "s": "The manager interviewed by the candidate asked many questions.",
+   "ask": "面接をしたのはどちらですか。",
+   "ch": [
+    "部長",
+    "候補者"
+   ],
+   "a": 1,
+   "why": "interviewed は過去分詞なので、manager は「面接された側」で、面接したのは candidate です。"
+  },
+  {
+   "type": "interp",
+   "s": "The client calling the office needed help.",
+   "ask": "電話をかけたのはどちらですか。",
+   "ch": [
+    "顧客",
+    "事務所の人"
+   ],
+   "a": 0,
+   "why": "calling は ing 形なので、client が「電話をかけている側」です。"
+  },
+  {
+   "type": "interp",
+   "s": "The client called by the office needed help.",
+   "ask": "電話をかけたのはどちらですか。",
+   "ch": [
+    "顧客",
+    "事務所の人"
+   ],
+   "a": 1,
+   "why": "called は過去分詞なので、client は「電話をかけられた側」で、かけたのは office です。"
+  },
+  {
+   "type": "interp",
+   "s": "Ms. Sato had the contract reviewed by her lawyer.",
+   "ask": "契約書を確認したのは誰ですか。",
+   "ch": [
+    "佐藤さん",
+    "弁護士"
+   ],
+   "a": 1,
+   "why": "have + 名詞 + 過去分詞で「〜してもらう」という意味です。reviewed は過去分詞なので、確認したのは lawyer です。"
+  },
+  {
+   "type": "interp",
+   "s": "The staff training the new workers stayed late yesterday.",
+   "ask": "昨日遅くまで残ったのはどちらですか。",
+   "ch": [
+    "指導していた社員",
+    "新人"
+   ],
+   "a": 0,
+   "why": "training は ing 形なので、staff が「指導している側」で、遅くまで残ったのはこの staff です。"
+  },
+  {
+   "type": "interp",
+   "s": "The staff trained by the manager stayed late yesterday.",
+   "ask": "指導をしたのは誰ですか。",
+   "ch": [
+    "社員",
+    "部長"
+   ],
+   "a": 1,
+   "why": "trained は過去分詞なので、staff は「指導された側」で、指導したのは manager です。"
+  },
+  {
+   "type": "interp",
+   "s": "Mr. Kim had his computer repaired last week.",
+   "ask": "コンピューターを直したのはキムさんですか。",
+   "ch": [
+    "はい、キムさん本人が直した",
+    "いいえ、他の人に直してもらった"
+   ],
+   "a": 1,
+   "why": "have + 名詞 + 過去分詞は「〜してもらう」という意味なので、直したのは別の人です。"
+  },
+  {
+   "type": "part5",
+   "s": "The documents ___ by the team will be sent to the client tomorrow.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "prepare",
+    "preparing",
+    "prepared",
+    "prepares"
+   ],
+   "a": 2,
+   "why": "documents は「準備される側」なので、過去分詞 prepared が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "The employee ___ in the meeting room is our new sales manager.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "wait",
+    "waiting",
+    "waited",
+    "waits"
+   ],
+   "a": 1,
+   "why": "employee は「待っている側」なので、ing 形 waiting が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "Please send me the report ___ at yesterday's meeting.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "discussing",
+    "discuss",
+    "discusses",
+    "discussed"
+   ],
+   "a": 3,
+   "why": "report は「話し合われた側」なので、過去分詞 discussed が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "Ms. Lee had the office ___ before the guests arrived.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "cleaning",
+    "cleaned",
+    "clean",
+    "cleans"
+   ],
+   "a": 1,
+   "why": "have + 名詞 + 過去分詞で「〜してもらう」という意味です。office は掃除される側なので cleaned です。"
+  },
+  {
+   "type": "part5",
+   "s": "The customers ___ in line waited more than an hour.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "stood",
+    "standing",
+    "stand",
+    "stands"
+   ],
+   "a": 1,
+   "why": "customers は「並んでいる側」なので、ing 形 standing が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "The email ___ this morning contained important information.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "receiving",
+    "receive",
+    "received",
+    "receives"
+   ],
+   "a": 2,
+   "why": "email は「受け取られた側」なので、過去分詞 received が入ります。"
+  }
+ ],
+ "id": "u01",
+ "created": "2026-11-11"
+}

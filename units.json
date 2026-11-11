@@ -1,0 +1,12 @@
+{
+ "units": [
+  {
+   "id": "u01",
+   "title": "動詞の形（過去分詞と ing 形）",
+   "part": "Part 5",
+   "point": "過去分詞は「される側」、ing 形は「している側」を表します。",
+   "example": "The report written by Mr. Tanaka was helpful.（田中さんによって書かれた報告書）",
+   "rem_hint": "written と writing、ちゃんと見分けられる？"
+  }
+ ]
+}
