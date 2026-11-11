@@ -53,13 +53,13 @@
    "s": "The client ___ we met last week sent us a thank-you email.",
    "ask": "空所に入る語を選んでください。",
    "ch": [
-    "who",
-    "whose",
     "whom",
-    "which"
+    "whose",
+    "what",
+    "where"
    ],
-   "a": 2,
-   "why": "先行詞は人の client で、関係節の中で met の目的語になっています。目的格の whom が正解です。who も使われますが選択肢では whom が適切です。",
+   "a": 0,
+   "why": "空所のあとに we met（主語と動詞）が続き、met の目的語が抜けているので、人を受ける目的格の whom を選ぶ。",
    "anchor": true,
    "uid": "anchor"
   },
@@ -144,16 +144,16 @@
   {
    "type": "part5",
    "topic": 10,
-   "s": "According to the email, members get a 10% discount. The price list shows the jacket is 80 dollars. ___ will a member pay for the jacket?",
-   "ask": "空所に入る語を選んでください。",
+   "s": "Email: Members get a 10% discount on all items. Price list: Jacket, 80 dollars. A member will pay ___ for the jacket.",
+   "ask": "2つの情報を合わせて、空所に入るものを選ぶ。",
    "ch": [
-    "How much",
-    "How many",
-    "How long",
-    "How often"
+    "80 dollars",
+    "72 dollars",
+    "88 dollars",
+    "8 dollars"
    ],
-   "a": 0,
-   "why": "金額を尋ねるので How much が正解です。メールの割引率と価格表の値段を組み合わせて計算する問題です。",
+   "a": 1,
+   "why": "メールの10%割引と価格表の80ドルを組み合わせる。80ドルの10%引きで72ドル。",
    "anchor": true,
    "uid": "anchor"
   }
