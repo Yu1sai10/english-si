@@ -15,6 +15,14 @@
    "point": "最初の名詞を動作主と決めつけず、形から誰がしたかを読み取る。",
    "example": "The report was reviewed by the manager.（「報告書が、部長によって、確認された」）",
    "rem_hint": "文の最初の名詞、動作主って決めつけてない？"
+  },
+  {
+   "id": "u03",
+   "title": "時制",
+   "part": "Part 5 / Part 6",
+   "point": "副詞に頼らず、動詞の形そのものから時を判断する力をつける。",
+   "example": "She finished the report.（動詞が finished なので、もう終わったこと）",
+   "rem_hint": "yesterday がなくても時がわかる?動詞の形で見抜く練習"
   }
  ]
 }

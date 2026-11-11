@@ -1,0 +1,185 @@
+{
+ "title": "時制",
+ "part": "Part 5 / Part 6",
+ "point": "副詞に頼らず、動詞の形そのものから時を判断する力をつける。",
+ "example": "She finished the report.（動詞が finished なので、もう終わったこと）",
+ "rem_hint": "yesterday がなくても時がわかる?動詞の形で見抜く練習",
+ "brief": [
+  "英語の文で「いつのことか」を知る手がかりは二つあります。一つは yesterday（昨日）や tomorrow（明日）のような時を表す言葉、もう一つは動詞そのものの形です。初級の学習者は時を表す言葉だけを見て意味を決めてしまいがちです。これを語彙頼みの読み方と呼びます。",
+  "たとえば She works here.（彼女はここで働いている）と She worked here.（彼女はここで働いていた）は、works か worked かという動詞の形だけで「今」か「過去」かが変わります。時を表す言葉がなくても、動詞の最後の ed や s を見れば、いつのことかわかります。",
+  "未来のことは will（これから〜する）を使って表します。She will send it.（彼女はこれから送る）のように、will があれば未来、動詞が ed で終われば過去、s で終われば今のこと、と形で見分けます。",
+  "進行の形（be 動詞 + ing）は「今まさにしている最中」を表します。is working なら今している最中、was working ならそのときしていた最中、と be 動詞の形で時が変わります。",
+  "完了の形（have + 過去分詞）は「ある時点までに終わっている」ことを表します。has finished なら今の時点で終わっている、had finished ならその過去の時点で終わっていた、という違いです。",
+  "この単元では、時を表す言葉をわざと左右そろえた文を並べます。動詞の形だけを見て、いつのことか判断する練習をしましょう。"
+ ],
+ "items": [
+  {
+   "type": "interp",
+   "s": "Mr. Tanaka sends the invoice to the client.",
+   "ask": "この文はいつのことですか。",
+   "ch": [
+    "いつもしていること",
+    "もう送り終わったこと"
+   ],
+   "a": 0,
+   "why": "動詞が sends という今の形なので、いつもしていること（習慣）を表します。"
+  },
+  {
+   "type": "interp",
+   "s": "Mr. Tanaka sent the invoice to the client.",
+   "ask": "この文はいつのことですか。",
+   "ch": [
+    "いつもしていること",
+    "もう送り終わったこと"
+   ],
+   "a": 1,
+   "why": "動詞が sent という過去の形なので、過去に行われたことを表します。"
+  },
+  {
+   "type": "interp",
+   "s": "The manager will review the contract.",
+   "ask": "この文はいつのことですか。",
+   "ch": [
+    "これからのこと",
+    "すでに終わったこと"
+   ],
+   "a": 0,
+   "why": "will があるので、これから起こる未来のことを表します。"
+  },
+  {
+   "type": "interp",
+   "s": "The manager reviewed the contract.",
+   "ask": "この文はいつのことですか。",
+   "ch": [
+    "これからのこと",
+    "すでに終わったこと"
+   ],
+   "a": 1,
+   "why": "動詞が reviewed という過去の形なので、過去に行われたことを表します。"
+  },
+  {
+   "type": "interp",
+   "s": "Ms. Lee is preparing the sales report.",
+   "ask": "この文はいつのことですか。",
+   "ch": [
+    "今している最中",
+    "そのときしていた最中"
+   ],
+   "a": 0,
+   "why": "is という今の形の be 動詞が使われているので、今まさにしている最中です。"
+  },
+  {
+   "type": "interp",
+   "s": "Ms. Lee was preparing the sales report.",
+   "ask": "この文はいつのことですか。",
+   "ch": [
+    "今している最中",
+    "そのときしていた最中"
+   ],
+   "a": 1,
+   "why": "was という過去の形の be 動詞が使われているので、過去のある時点でしていた最中です。"
+  },
+  {
+   "type": "interp",
+   "s": "The team has finished the project.",
+   "ask": "この文はいつのことですか。",
+   "ch": [
+    "今の時点で終わっている",
+    "過去のある時点で終わっていた"
+   ],
+   "a": 0,
+   "why": "has という今の形なので、今の時点で終わっていることを表します。"
+  },
+  {
+   "type": "interp",
+   "s": "The team had finished the project.",
+   "ask": "この文はいつのことですか。",
+   "ch": [
+    "今の時点で終わっている",
+    "過去のある時点で終わっていた"
+   ],
+   "a": 1,
+   "why": "had という過去の形なので、過去のある時点までに終わっていたことを表します。"
+  },
+  {
+   "type": "part5",
+   "s": "Our supplier ___ the shipment last Friday.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "delivers",
+    "delivered",
+    "will deliver",
+    "is delivering"
+   ],
+   "a": 1,
+   "why": "last Friday（先週の金曜日）は過去を表すので、動詞も過去の形 delivered にそろえます。"
+  },
+  {
+   "type": "part5",
+   "s": "The accounting team ___ the budget report next week.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "submitted",
+    "submits",
+    "will submit",
+    "has submitted"
+   ],
+   "a": 2,
+   "why": "next week（来週）は未来を表すので、will submit にします。"
+  },
+  {
+   "type": "part5",
+   "s": "Mr. Chen ___ with a customer right now.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "meets",
+    "met",
+    "will meet",
+    "is meeting"
+   ],
+   "a": 3,
+   "why": "right now（今まさに）は今している最中を表すので、is meeting にします。"
+  },
+  {
+   "type": "part5",
+   "s": "The staff ___ to the office every morning at nine.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "come",
+    "came",
+    "will come",
+    "has come"
+   ],
+   "a": 0,
+   "why": "every morning（毎朝）はいつもの習慣を表すので、今の形 come にします。"
+  },
+  {
+   "type": "part5",
+   "s": "By the time the meeting started, Ms. Park ___ the slides.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "prepares",
+    "has prepared",
+    "had prepared",
+    "will prepare"
+   ],
+   "a": 2,
+   "why": "過去のある時点（会議が始まったとき）までに終わっていたことなので、had prepared にします。"
+  },
+  {
+   "type": "part5",
+   "s": "The new office ___ next month.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "opened",
+    "opens",
+    "will open",
+    "has opened"
+   ],
+   "a": 2,
+   "why": "next month（来月）は未来を表すので、will open にします。"
+  }
+ ],
+ "id": "u03",
+ "created": "2026-11-11"
+}
