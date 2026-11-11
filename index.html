@@ -38,8 +38,7 @@ const STEPS = [7, 21, 60];
 const ENDPOINT = "https://5rctj7z24s5tat6l4vc6gmyc240hptqm.lambda-url.ap-northeast-1.on.aws/";
 const KKEY = "english-units-key", OUTBOX = "english-units-outbox";
 (() => { const q = new URLSearchParams(location.search), k = q.get("k");
-  if (k) { localStorage.setItem(KKEY, k); q.delete("k");
-    history.replaceState(null, "", location.pathname + (q.toString() ? "?" + q : "")); } })();
+  if (k) localStorage.setItem(KKEY, k); })();  /* k は URL に残す。ホーム画面に追加したアイコンへ引き継ぐため */
 function enqueue(payload) {
   const box = JSON.parse(localStorage.getItem(OUTBOX) || "[]");
   box.push(payload); localStorage.setItem(OUTBOX, JSON.stringify(box.slice(-200))); flush();
@@ -176,7 +175,7 @@ async function check(month) {
   const c = await (await fetch(`checks/${month}.json`, {cache: "no-cache"})).json();
   $app.innerHTML = `<h1>${esc(c.title)}</h1><div class="card"><p>${esc(c.intro)}</p><p class="sub">${c.items.length}問。演習中は正誤だけ出ます。</p></div>
     <button class="main" id="go">始める</button><button id="back">ホームへ</button>`;
-  document.getElementById("back").onclick = () => { history.replaceState(null, "", location.pathname); home(); };
+  document.getElementById("back").onclick = home;
   document.getElementById("go").onclick = () => practice(c.items.map((it, i) => ({uid: it.uid || "anchor", i, it})), c.title, "check");
 }
 flush();
