@@ -105,6 +105,10 @@ async function dueList() {
 async function home() {
   const st = load(), due = await dueList();
   let h = `<h1>英語の単元</h1><p class="sub">解説を読んでから演習。演習中は正誤だけ出ます。理由は最後にまとめて見ます。</p>`;
+  const month = today().slice(0, 7);
+  let chk = null;
+  if (!(st.checks || {})[month]) { try { const r = await fetch(`checks/${month}.json`, {cache: "no-cache"}); if (r.ok) chk = await r.json(); } catch (e) {} }
+  if (chk) h += `<button class="main" id="ck">${esc(chk.title)}（${chk.items.length}問）</button>`;
   if (due.length) h += `<button class="main" id="rv">復習 ${due.length}問</button>`;
   [...MAN.units].reverse().forEach(m => {
     const tag = st.started[m.id] ? `<span class="done">着手 ${esc(st.started[m.id])}</span>` : "";
@@ -114,6 +118,8 @@ async function home() {
   if (!MAN.units.length) h += `<p class="sub">単元はまだありません。</p>`;
   $app.innerHTML = h;
   $app.querySelectorAll("[data-u]").forEach(b => b.onclick = () => brief(b.dataset.u));
+  const ck = document.getElementById("ck");
+  if (ck) ck.onclick = () => check(month);
   const rv = document.getElementById("rv");
   if (rv) rv.onclick = () => practice(due, "復習", "review");
 }
@@ -136,7 +142,8 @@ function practice(list, label, kind = "unit") {
   const wrong = [], log = [], t0 = Date.now(); let n = 0, ok = 0;
   const step = () => {
     if (n >= list.length) {
-      enqueue({kind, label, date: today(), month: kind === "check" ? new URLSearchParams(location.search).get("check") : undefined, sec: Math.round((Date.now() - t0) / 1000), ok, total: list.length, items: log});
+      if (kind === "check") { const st = load(); st.checks = st.checks || {}; st.checks[CHECK_MONTH] = today(); save(st); }
+      enqueue({kind, label, date: today(), month: kind === "check" ? CHECK_MONTH : undefined, sec: Math.round((Date.now() - t0) / 1000), ok, total: list.length, items: log});
       return result(label, ok, list.length, wrong, kind === "check" ? log : null);
     }
     const {it} = list[n];
@@ -171,7 +178,9 @@ function result(label, ok, total, wrong, log) {
   document.getElementById("home").onclick = home;
 }
 
+let CHECK_MONTH = null;
 async function check(month) {
+  CHECK_MONTH = month;
   const c = await (await fetch(`checks/${month}.json`, {cache: "no-cache"})).json();
   $app.innerHTML = `<h1>${esc(c.title)}</h1><div class="card"><p>${esc(c.intro)}</p><p class="sub">${c.items.length}問。演習中は正誤だけ出ます。</p></div>
     <button class="main" id="go">始める</button><button id="back">ホームへ</button>`;
