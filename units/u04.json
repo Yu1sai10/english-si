@@ -1,0 +1,185 @@
+{
+ "title": "関係節",
+ "part": "Part 5 / Part 7",
+ "point": "who/that/which の後ろが動詞なら主語、主語+動詞なら目的語を説明する。",
+ "example": "The manager who hired Tom is in Osaka.（Tom を雇った部長は大阪にいる）",
+ "rem_hint": "英語は説明が後ろ。関係節を30分で整理しよう。",
+ "brief": [
+  "日本語では「トムを雇った部長」のように、説明する言葉が名詞の前に来ます。英語はこれが逆で、名詞のうしろに説明が続きます。The manager who hired Tom のように、manager をうしろから who hired Tom が説明します。",
+  "この who / that / which（関係代名詞と呼びます。名詞をうしろから説明するつなぎ言葉です）のあとを見て、動詞がすぐ来るか、主語＋動詞が来るかで意味が変わります。",
+  "who / that / which のすぐあとに動詞が来るときは、説明される名詞がその動詞の動作主（動作をする人やもの）です。The manager who hired Tom なら、雇ったのは manager です。",
+  "who / that / which のあとに主語＋動詞が来るときは、説明される名詞はその動詞の目的語（動作を受けるほう）です。The manager who Tom hired なら、雇われたのは manager で、雇ったのは Tom です。",
+  "この目的語のタイプでは、who / that / which を省略できます。The report Tom wrote のように、名詞のあとにすぐ主語＋動詞が続く形をよく見ます。読むときに「ここから説明が始まる」と気づけることが大切です。",
+  "読み方のコツは、名詞のうしろに who / that / which や「名詞＋主語＋動詞」が続いたら、いったん止めて、どこまでが説明かを確かめることです。日本語に直すときは説明を前に回します。"
+ ],
+ "items": [
+  {
+   "type": "interp",
+   "s": "The client who called the office was angry.",
+   "ask": "怒っていたのは誰ですか。",
+   "ch": [
+    "事務所の人",
+    "顧客"
+   ],
+   "a": 1,
+   "why": "who のすぐあとが動詞 called なので、client が電話をかけた人です。was angry の主語も client です。"
+  },
+  {
+   "type": "interp",
+   "s": "The supplier that visited our factory sent a new sample.",
+   "ask": "工場を訪ねたのはどちらですか。",
+   "ch": [
+    "仕入先",
+    "私たちの工場の担当者"
+   ],
+   "a": 0,
+   "why": "that のあとに動詞 visited が来ているので、supplier が訪ねた側です。"
+  },
+  {
+   "type": "interp",
+   "s": "The manager who trained the staff retired last month.",
+   "ask": "先月引退したのは誰ですか。",
+   "ch": [
+    "スタッフ",
+    "部長"
+   ],
+   "a": 1,
+   "why": "who trained the staff が manager を説明しています。文全体の主語は manager で、retired したのは manager です。"
+  },
+  {
+   "type": "interp",
+   "s": "The engineer that the company hired speaks three languages.",
+   "ask": "雇われたのは誰ですか。",
+   "ch": [
+    "技術者",
+    "会社の人事担当"
+   ],
+   "a": 0,
+   "why": "that のあとに主語 the company と動詞 hired が続きます。engineer は hired の目的語なので、雇われた側です。"
+  },
+  {
+   "type": "interp",
+   "s": "The report which the director reviewed arrived yesterday.",
+   "ask": "見直されたのは何ですか。",
+   "ch": [
+    "役員のメモ",
+    "報告書"
+   ],
+   "a": 1,
+   "why": "which のあとに主語 the director と動詞 reviewed が来ています。report が reviewed の目的語です。"
+  },
+  {
+   "type": "interp",
+   "s": "The customer that our sales team contacted signed the contract.",
+   "ask": "契約書に署名したのは誰ですか。",
+   "ch": [
+    "顧客",
+    "営業チーム"
+   ],
+   "a": 0,
+   "why": "文全体の主語は customer です。that our sales team contacted は customer を説明しています。"
+  },
+  {
+   "type": "interp",
+   "s": "The presentation the intern prepared impressed the board.",
+   "ask": "準備したのは誰ですか。",
+   "ch": [
+    "役員",
+    "インターン"
+   ],
+   "a": 1,
+   "why": "presentation のうしろに主語 the intern と動詞 prepared が続きます。関係代名詞が省略された形で、準備したのは intern です。"
+  },
+  {
+   "type": "interp",
+   "s": "The email the assistant sent yesterday reached every department.",
+   "ask": "昨日送られたのは何ですか。",
+   "ch": [
+    "メール",
+    "アシスタント"
+   ],
+   "a": 0,
+   "why": "email のあとに the assistant sent が続きます。関係代名詞が省略され、送られたのは email です。"
+  },
+  {
+   "type": "part5",
+   "s": "The accountant ___ checked the invoice found a small error.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "who",
+    "whose",
+    "what",
+    "where"
+   ],
+   "a": 0,
+   "why": "accountant（人）を説明し、うしろに動詞 checked が続くので主語を示す who が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "The shipment ___ we received on Monday was damaged.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "who",
+    "whom",
+    "which",
+    "whose"
+   ],
+   "a": 2,
+   "why": "shipment（もの）を説明し、うしろに we received が続くので、目的語を示す which が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "We hired a designer ___ has worked with global brands.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "which",
+    "who",
+    "whose",
+    "whom"
+   ],
+   "a": 1,
+   "why": "designer（人）を説明し、うしろに動詞 has worked が続くので who が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "The proposal ___ the committee approved will be announced today.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "who",
+    "what",
+    "that",
+    "where"
+   ],
+   "a": 2,
+   "why": "proposal を説明し、うしろに主語 the committee と動詞 approved が続きます。that が目的語の働きで入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "The branch ___ opened in May has already reached its sales goal.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "who",
+    "whom",
+    "which",
+    "what"
+   ],
+   "a": 2,
+   "why": "branch（もの）を説明し、うしろに動詞 opened が続くので主語を示す which が入ります。"
+  },
+  {
+   "type": "part5",
+   "s": "The topics ___ we discussed in the meeting will appear in the next report.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "who",
+    "that",
+    "whose",
+    "when"
+   ],
+   "a": 1,
+   "why": "topics を説明し、うしろに主語 we と動詞 discussed が続くので、目的語を示す that が入ります。"
+  }
+ ],
+ "id": "u04",
+ "created": "2026-11-12"
+}

@@ -23,6 +23,14 @@
    "point": "副詞に頼らず、動詞の形そのものから時を判断する力をつける。",
    "example": "She finished the report.（動詞が finished なので、もう終わったこと）",
    "rem_hint": "yesterday がなくても時がわかる?動詞の形で見抜く練習"
+  },
+  {
+   "id": "u04",
+   "title": "関係節",
+   "part": "Part 5 / Part 7",
+   "point": "who/that/which の後ろが動詞なら主語、主語+動詞なら目的語を説明する。",
+   "example": "The manager who hired Tom is in Osaka.（Tom を雇った部長は大阪にいる）",
+   "rem_hint": "英語は説明が後ろ。関係節を30分で整理しよう。"
   }
  ]
 }
