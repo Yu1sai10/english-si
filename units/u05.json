@@ -1,0 +1,185 @@
+{
+ "title": "品詞を見分ける（名詞・形容詞・副詞）",
+ "part": "Part 5",
+ "point": "空所の前後の形で、必要な品詞を決める練習をします。",
+ "example": "The manager made a quick decision.（マネージャーは素早い決定をした）",
+ "rem_hint": "品詞の見分け、語尾でサッと解けるようになろう",
+ "brief": [
+  "英語の文は、語の意味だけでなく、語の種類（品詞）で組み立てられています。空所補充の問題では、空所の前後を見て「ここには名詞が来る」「ここには形容詞が来る」と決めてから答えを選ぶと速く正確に解けます。",
+  "名詞（人や物の名前を表す語）は、a や the の後、of の後、動詞の目的語の位置に入ります。語尾が -tion、-ment、-ance、-ity で終わる語は名詞であることが多いです。例えば decision（決定）、payment（支払い）などです。",
+  "形容詞（名詞を説明する語）は、名詞の前、または be 動詞の後に入ります。語尾が -ive、-ful、-ous、-al で終わる語は形容詞であることが多いです。例えば effective（効果的な）、useful（役に立つ）などです。",
+  "副詞（動詞や形容詞を説明する語）は、動詞の前後、形容詞の前、文頭や文末に入ります。語尾が -ly で終わる語の多くは副詞です。例えば quickly（素早く）、carefully（注意深く）などです。",
+  "大事なのは、意味で選ばず形で選ぶことです。例えば a ___ decision の空所には、a と名詞 decision の間なので、形容詞が入ります。意味が通りそうでも、品詞が合わなければ正解にはなりません。",
+  "この単元では、まず文の中で語がどんな働きをしているかを読み取る問題を解き、次に空所に入る品詞を語尾から選ぶ練習をします。前後の語をよく見てから選びましょう。"
+ ],
+ "items": [
+  {
+   "type": "interp",
+   "s": "The report was useful.",
+   "ask": "useful は文の中で何を説明していますか。",
+   "ch": [
+    "report を説明している",
+    "was を説明している"
+   ],
+   "a": 0,
+   "why": "be 動詞の後にある形容詞は、主語の名詞（report）の様子を説明します。"
+  },
+  {
+   "type": "interp",
+   "s": "She answered the question quickly.",
+   "ask": "quickly は文の中で何を説明していますか。",
+   "ch": [
+    "question を説明している",
+    "answered を説明している"
+   ],
+   "a": 1,
+   "why": "quickly は -ly で終わる副詞で、動詞 answered（答えた）の様子を説明しています。"
+  },
+  {
+   "type": "interp",
+   "s": "The company made a careful decision.",
+   "ask": "careful は文の中で何を説明していますか。",
+   "ch": [
+    "decision を説明している",
+    "made を説明している"
+   ],
+   "a": 0,
+   "why": "careful は形容詞で、後ろの名詞 decision を説明しています。a と名詞の間に形容詞が入る形です。"
+  },
+  {
+   "type": "interp",
+   "s": "The payment arrived on Monday.",
+   "ask": "payment は文の中でどんな働きをしていますか。",
+   "ch": [
+    "主語（文の主人公）",
+    "動詞（動作を表す語）"
+   ],
+   "a": 0,
+   "why": "payment は -ment で終わる名詞で、ここでは文の主語になっています。"
+  },
+  {
+   "type": "interp",
+   "s": "He explained the plan clearly.",
+   "ask": "clearly は文の中で何を説明していますか。",
+   "ch": [
+    "plan を説明している",
+    "explained を説明している"
+   ],
+   "a": 1,
+   "why": "clearly は -ly の副詞で、動詞 explained の様子を説明しています。名詞の前にはないので、名詞を説明しているわけではありません。"
+  },
+  {
+   "type": "interp",
+   "s": "The new manager is very active.",
+   "ask": "active は文の中で何を説明していますか。",
+   "ch": [
+    "manager を説明している",
+    "is を説明している"
+   ],
+   "a": 0,
+   "why": "active は be 動詞の後にある形容詞で、主語の名詞 manager の様子を説明しています。"
+  },
+  {
+   "type": "interp",
+   "s": "The improvement was clear to everyone.",
+   "ask": "improvement は文の中でどんな働きをしていますか。",
+   "ch": [
+    "主語（文の主人公）",
+    "形容詞（名詞を説明する語）"
+   ],
+   "a": 0,
+   "why": "improvement は -ment で終わる名詞で、文の主語になっています。語尾を見ると名詞だと分かります。"
+  },
+  {
+   "type": "interp",
+   "s": "The team finished the project successfully.",
+   "ask": "successfully は文の中で何を説明していますか。",
+   "ch": [
+    "project を説明している",
+    "finished を説明している"
+   ],
+   "a": 1,
+   "why": "successfully は -ly の副詞で、動詞 finished の様子を説明しています。"
+  },
+  {
+   "type": "part5",
+   "s": "The staff gave a ___ presentation to the client.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "succeed",
+    "success",
+    "successful",
+    "successfully"
+   ],
+   "a": 2,
+   "why": "a と名詞 presentation の間なので形容詞が入ります。-ful で終わる successful が形容詞です。"
+  },
+  {
+   "type": "part5",
+   "s": "The new system works ___ in every office.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "effect",
+    "effective",
+    "effectively",
+    "effectiveness"
+   ],
+   "a": 2,
+   "why": "動詞 works の後で動詞の様子を説明するので、副詞が入ります。-ly で終わる effectively が副詞です。"
+  },
+  {
+   "type": "part5",
+   "s": "The manager asked for a quick ___ from the team.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "decide",
+    "decision",
+    "decisive",
+    "decisively"
+   ],
+   "a": 1,
+   "why": "形容詞 quick の後なので名詞が入ります。-sion で終わる decision が名詞です。"
+  },
+  {
+   "type": "part5",
+   "s": "The report was ___ written by the assistant.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "care",
+    "careful",
+    "carefully",
+    "caring"
+   ],
+   "a": 2,
+   "why": "be 動詞と過去分詞 written の間に入って動詞を説明するので、副詞が入ります。-ly の carefully が副詞です。"
+  },
+  {
+   "type": "part5",
+   "s": "The company announced an important ___ last week.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "change",
+    "changeable",
+    "changing",
+    "changes"
+   ],
+   "a": 0,
+   "why": "an と形容詞 important の後なので、単数の名詞が入ります。change は名詞として使えます。"
+  },
+  {
+   "type": "part5",
+   "s": "The staff handled the problem ___ during the meeting.",
+   "ask": "空所に入る語を選ぶ。",
+   "ch": [
+    "calm",
+    "calmly",
+    "calmness",
+    "calming"
+   ],
+   "a": 1,
+   "why": "動詞 handled と目的語の後で動詞の様子を説明するので、副詞が入ります。-ly の calmly が副詞です。"
+  }
+ ],
+ "id": "u05",
+ "created": "2026-11-13"
+}

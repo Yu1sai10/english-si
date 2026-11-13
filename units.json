@@ -31,6 +31,14 @@
    "point": "who/that/which の後ろが動詞なら主語、主語+動詞なら目的語を説明する。",
    "example": "The manager who hired Tom is in Osaka.（Tom を雇った部長は大阪にいる）",
    "rem_hint": "英語は説明が後ろ。関係節を30分で整理しよう。"
+  },
+  {
+   "id": "u05",
+   "title": "品詞を見分ける（名詞・形容詞・副詞）",
+   "part": "Part 5",
+   "point": "空所の前後の形で、必要な品詞を決める練習をします。",
+   "example": "The manager made a quick decision.（マネージャーは素早い決定をした）",
+   "rem_hint": "品詞の見分け、語尾でサッと解けるようになろう"
   }
  ]
 }
